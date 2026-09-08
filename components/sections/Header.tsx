@@ -26,10 +26,10 @@ export function Header() {
         </div>
 
         <div className="hidden lg:flex items-center gap-6 text-[13px] font-medium text-muted">
-          <a href="#about-me" className="hover:text-foreground transition-colors">{t.nav.about}</a>
-          <a href="#ventures" className="hover:text-foreground transition-colors">{t.nav.ventures}</a>
-          <a href="#track-record" className="hover:text-foreground transition-colors">{t.nav.trackRecord}</a>
-          <a href="#metrics" className="hover:text-foreground transition-colors">{t.nav.thesis}</a>
+          <a href="#about-me" className="hover:text-foreground transition-colors">{t.nav.pillars}</a>
+          <a href="#ventures" className="hover:text-foreground transition-colors">{t.nav.timeline}</a>
+          
+          <a href="#metrics" className="hover:text-foreground transition-colors">{t.nav.assets}</a>
         </div>
 
         <div className="hidden md:flex items-center gap-4">
@@ -59,10 +59,10 @@ export function Header() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="absolute top-20 left-6 right-6 pointer-events-auto bg-surface border border-border rounded-2xl p-4 flex flex-col gap-4 shadow-xl lg:hidden">
-          <a href="#about-me" onClick={() => setIsOpen(false)} className="text-muted hover:text-foreground font-medium p-2">{t.nav.about}</a>
-          <a href="#ventures" onClick={() => setIsOpen(false)} className="text-muted hover:text-foreground font-medium p-2">{t.nav.ventures}</a>
-          <a href="#track-record" onClick={() => setIsOpen(false)} className="text-muted hover:text-foreground font-medium p-2">{t.nav.trackRecord}</a>
-          <a href="#metrics" onClick={() => setIsOpen(false)} className="text-muted hover:text-foreground font-medium p-2">{t.nav.thesis}</a>
+          <a href="#about-me" className="text-xs font-semibold uppercase tracking-widest text-muted hover:text-foreground transition-colors py-2">{t.nav.pillars}</a>
+          <a href="#ventures" className="text-xs font-semibold uppercase tracking-widest text-muted hover:text-foreground transition-colors py-2">{t.nav.timeline}</a>
+          
+          <a href="#assets" className="text-xs font-semibold uppercase tracking-widest text-muted hover:text-foreground transition-colors py-2">{t.nav.assets}</a>
           
           <div className="flex items-center justify-between p-2 mt-2 border-t border-border">
             <span className="text-xs text-muted tracking-widest">THEME</span>

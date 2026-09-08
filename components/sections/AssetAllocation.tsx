@@ -27,18 +27,18 @@ export function AssetAllocation() {
           className="mb-16"
         >
           <h2 className="text-xs font-bold tracking-[0.2em] text-accent uppercase mb-4">
-            {t.assets.tag}
+            {t.assets.badge}
           </h2>
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-medium text-foreground tracking-tight leading-tight max-w-2xl">
-            {t.assets.title}
+            {t.assets.heading}
           </h3>
           <p className="mt-6 text-muted max-w-2xl leading-relaxed text-lg">
-            {t.assets.desc}
+            {t.assets.description}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {t.assets.cards.map((card: any, index: number) => (
+          {t.assets.items.map((card: any, index: number) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -63,7 +63,7 @@ export function AssetAllocation() {
                 
                 {/* Tag & Title */}
                 <div className="text-[10px] font-bold tracking-widest uppercase text-accent mb-3">
-                  {card.tag}
+                  {card.type}
                 </div>
                 <h4 className="text-xl text-foreground font-semibold mb-4 leading-snug">
                   {card.title}

@@ -21,7 +21,7 @@ export function Footer() {
             </div>
           </div>
           <p className="text-xs text-muted/60">
-            © {new Date().getFullYear()} Farras Daffa Yassarramadhan. {t.footer.rights}
+            © {new Date().getFullYear()} Farras Daffa Yassarramadhan. {t.footer.copyright}
           </p>
         </div>
 

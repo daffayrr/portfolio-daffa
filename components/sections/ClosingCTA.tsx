@@ -19,10 +19,10 @@ export function ClosingCTA() {
           transition={{ duration: 0.6 }}
         >
           <div className="text-xs font-mono font-bold tracking-[0.2em] text-accent uppercase mb-6">
-            {t.closingCta.tag}
+            {t.closingCta.badge}
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight leading-[1.1] mb-12 max-w-3xl mx-auto drop-shadow-sm">
-            {t.closingCta.title}
+            {t.closingCta.heading}
           </h2>
         </motion.div>
 
@@ -36,7 +36,7 @@ export function ClosingCTA() {
             href="#contact"
             className="inline-flex items-center justify-center bg-surface/50 hover:bg-accent text-foreground hover:text-black border border-border transition-all duration-300 rounded-full px-10 py-4 font-semibold text-sm shadow-[0_0_20px_rgba(0,242,195,0.1)] hover:shadow-[0_0_30px_rgba(0,242,195,0.4)]"
           >
-            {t.closingCta.btn}
+            {t.closingCta.button}
           </a>
         </motion.div>
       </div>

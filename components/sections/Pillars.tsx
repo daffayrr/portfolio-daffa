@@ -6,7 +6,7 @@ import { useLanguage } from '@/context/LanguageContext';
 
 export function Pillars() {
   const { t } = useLanguage();
-  const cards = t.pillars.cards;
+  const cards = t.pillars.items;
 
   return (
     <section id="about" className="py-24 px-6 relative z-10 border-t border-border">
@@ -19,11 +19,11 @@ export function Pillars() {
           className="mb-16"
         >
           <h2 className="text-xs font-bold tracking-[0.2em] text-accent uppercase mb-4">
-            {t.pillars.tag}
+            {t.pillars.badge}
           </h2>
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-medium text-foreground tracking-tight leading-tight">
-            {t.pillars.title} <br />
-            <span className="text-muted-dark">{t.pillars.title2}</span>
+            {t.pillars.heading} <br />
+            <span className="text-muted-dark">{t.pillars.subheading}</span>
           </h3>
         </motion.div>
 
@@ -53,12 +53,12 @@ export function Pillars() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
                   </span>
-                  <span className="text-[10px] font-bold tracking-wider uppercase text-foreground">{cards[0].status}</span>
+                  <span className="text-[10px] font-bold tracking-wider uppercase text-foreground">{cards[0].badge}</span>
                 </div>
               </div>
 
               <p className="text-muted/80 text-sm md:text-base leading-relaxed mb-6">
-                {cards[0].desc}
+                {cards[0].description}
               </p>
             </div>
 
@@ -97,12 +97,12 @@ export function Pillars() {
                 
                 {/* Top-Right Status */}
                 <div className="inline-flex items-center bg-background/50 border border-border px-3 py-1.5 rounded-full self-start">
-                  <span className="text-[10px] font-bold tracking-wider uppercase text-muted">{cards[1].status}</span>
+                  <span className="text-[10px] font-bold tracking-wider uppercase text-muted">{cards[1].badge}</span>
                 </div>
               </div>
 
               <p className="text-muted/80 text-sm md:text-base leading-relaxed mb-6">
-                {cards[1].desc}
+                {cards[1].description}
               </p>
             </div>
 
@@ -116,7 +116,7 @@ export function Pillars() {
                 ))}
               </div>
               <div className="text-[10px] font-bold text-accent uppercase tracking-wider mt-2 bg-accent/5 border border-accent/10 inline-block px-3 py-1.5 rounded-md w-fit">
-                {cards[1].metric}
+                
               </div>
             </div>
           </motion.div>
@@ -140,12 +140,12 @@ export function Pillars() {
                 
                 {/* Top-Right Status */}
                 <div className="inline-flex items-center bg-background/50 border border-border px-3 py-1.5 rounded-full self-start">
-                  <span className="text-[10px] font-bold tracking-wider uppercase text-muted">{cards[2].status}</span>
+                  <span className="text-[10px] font-bold tracking-wider uppercase text-muted">{cards[2].badge}</span>
                 </div>
               </div>
 
               <p className="text-muted/80 text-sm md:text-base leading-relaxed mb-6">
-                {cards[2].desc}
+                {cards[2].description}
               </p>
             </div>
 
@@ -178,12 +178,12 @@ export function Pillars() {
                 
                 {/* Top-Right Status */}
                 <div className="inline-flex items-center bg-background/50 border border-border px-3 py-1.5 rounded-full self-start">
-                  <span className="text-[10px] font-bold tracking-wider uppercase text-muted">{cards[3].status}</span>
+                  <span className="text-[10px] font-bold tracking-wider uppercase text-muted">{cards[3].badge}</span>
                 </div>
               </div>
 
               <p className="text-muted/80 text-sm md:text-base leading-relaxed mb-6">
-                {cards[3].desc}
+                {cards[3].description}
               </p>
             </div>
 

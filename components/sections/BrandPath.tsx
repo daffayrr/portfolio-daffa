@@ -6,14 +6,12 @@ import { useLanguage } from '@/context/LanguageContext';
 import { ArrowUpRight } from 'lucide-react';
 
 export interface TimelineItem {
-  id: number;
-  title: string;
   period: string;
+  brand: string;
   domain: string;
   description: string;
   objective: string;
   link?: string;
-  logo: string;
 }
 
 export function BrandPath() {
@@ -30,17 +28,17 @@ export function BrandPath() {
           className="mb-16 text-center md:text-left"
         >
           <h2 className="text-xs font-bold tracking-[0.2em] text-accent uppercase mb-4">
-            {t.brandPath.tag}
+            {t.timeline.badge}
           </h2>
           <h3 className="text-3xl md:text-4xl font-medium text-foreground">
-            {t.brandPath.title}
+            {t.timeline.heading}
           </h3>
         </motion.div>
 
         <div className="relative border-l border-border md:ml-6 space-y-12">
-          {t.brandPath.items.map((item: TimelineItem, index: number) => (
+          {t.timeline.items.map((item: TimelineItem, index: number) => (
             <motion.div
-              key={item.id}
+              key={index}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -59,8 +57,8 @@ export function BrandPath() {
                   {/* Logo */}
                   <div className="shrink-0 w-24 h-24 md:w-32 md:h-32 bg-white rounded-xl p-3 border border-border flex items-center justify-center relative">
                     <Image
-                      src={item.logo}
-                      alt={item.title}
+                      src={index === 0 ? '/assets/logos/1_df_computer.png' : index === 1 ? '/assets/logos/0_ZeaTechLogo.jpg' : index === 2 ? '/assets/logos/ingenia2.png' : '/assets/logos/3_toscaflow.png'}
+                      alt={item.brand}
                       fill
                       sizes="(max-width: 768px) 96px, 128px"
                       className="object-contain p-3"
@@ -71,7 +69,7 @@ export function BrandPath() {
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-4">
                       <div>
-                        <h4 className="text-2xl font-bold text-foreground tracking-tight">{item.title}</h4>
+                        <h4 className="text-2xl font-bold text-foreground tracking-tight">{item.brand}</h4>
                         <div className="text-sm text-accent font-semibold mt-1">{item.period}</div>
                       </div>
                       {item.link && (

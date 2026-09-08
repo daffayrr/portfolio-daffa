@@ -1,23 +1,108 @@
 export type Language = 'en' | 'id';
 
-export const content = {
+export interface ContentDictionary {
+  nav: {
+    pillars: string;
+    timeline: string;
+    assets: string;
+    cta: string;
+  };
+  hero: {
+    badge: string;
+    headline: string;
+    subheadline: string;
+    ctaProjects: string;
+    ctaContact: string;
+  };
+
+  aboutMe: {
+    tag: string;
+    title: string;
+    subtitle: string;
+    p1: string;
+    p2: string;
+  };
+  portfolio: {
+    tag: string;
+    title: string;
+    viewAll: string;
+    projects: Array<{
+      title: string;
+      description: string;
+      tags: string[];
+      metrics: string;
+      featured: boolean;
+    }>;
+  };
+  metrics: Array<{
+    number: string;
+    label: string;
+    description: string;
+  }>;
+  pillars: {
+    badge: string;
+    heading: string;
+    subheading: string;
+    items: Array<{
+      title: string;
+      badge: string;
+      description: string;
+      tags: string[];
+      link?: string;
+      linkText?: string;
+    }>;
+  };
+  assets: {
+    badge: string;
+    heading: string;
+    description: string;
+    items: Array<{
+      title: string;
+      type: string;
+      role: string;
+      thesis: string;
+      logoSrc: string;
+      isSvg?: boolean;
+    }>;
+  };
+  timeline: {
+    badge: string;
+    heading: string;
+    description: string;
+    items: Array<{
+      period: string;
+      brand: string;
+      domain: string;
+      description: string;
+      objective: string;
+      link?: string;
+    }>;
+  };
+  closingCta: {
+    badge: string;
+    heading: string;
+    button: string;
+  };
+  footer: {
+    copyright: string;
+    disclaimer: string;
+  };
+}
+
+export const content: Record<'en' | 'id', ContentDictionary> = {
   en: {
     nav: {
-      about: 'About / Pillars',
-      ventures: 'Ventures',
-      trackRecord: 'Track Record',
-      thesis: 'Thesis / Tech',
-      contact: 'Contact',
-      cta: 'Inquire / Connect'
+      pillars: "Pillars",
+      timeline: "Venture Path",
+      assets: "Asset Allocation",
+      cta: "Initiate Inquiry",
     },
     hero: {
-      status: 'Founder of ToscaFlow & Software Engineer',
-      titleLine1: 'The Convergence of',
-      titleLine2: 'Software Engineering',
-      titleLine3: '& Scalable Architecture.',
-      description: 'Focused on developing scalable web and mobile applications. Building end-to-end software solutions with ASP.NET Core, Laravel, and Flutter, backed by solid database and server administration expertise.',
-      ctaPrimary: 'Explore ToscaFlow',
-      ctaSecondary: 'View Track Record'
+      badge: "Founder & CEO at ToscaFlow • Technology & Capital Strategy",
+      headline: "Engineering Scalable Systems. Allocating Strategic Capital.",
+      subheadline: "Converging mission-critical software engineering with disciplined, long-term personal capital allocation.",
+      ctaProjects: "Explore Ventures",
+      ctaContact: "Get in Touch",
     },
     aboutMe: {
       tag: 'About Me',
@@ -25,83 +110,6 @@ export const content = {
       subtitle: 'PHP Web Developer & IT Professional',
       p1: 'Highly motivated IT Professional bridging the gap between technical development and business operations. Equipped with a solid foundation in Informatics Engineering and practical expertise spanning full-stack web development, server administration, and infrastructure management.',
       p2: 'Demonstrated capability in leading operational centers and executing complex projects from planning to deployment. Possesses a strong analytical background enriched by experience in the finance sector and seeks to leverage a unique blend of technical acumen and operational efficiency.'
-    },
-    brandPath: {
-      tag: 'Brand Evolution Path',
-      title: 'Venture Timeline',
-      items: [
-        {
-          id: 1,
-          title: 'DF Computer',
-          period: '2020 – 2021',
-          domain: 'Hardware & IT Infrastructure Foundation',
-          link: 'https://daffayr.netlify.app/',
-          description: 'Initial foray into IT servicing and hardware maintenance. Focused on operating system deployment, computer troubleshooting, and essential web setups for local businesses and personal clients.',
-          objective: 'To deliver dependable, accessible technical hardware solutions while establishing core competencies in low-level systems and client service.',
-          logo: '/assets/logos/1_df_computer.png'
-        },
-        {
-          id: 2,
-          title: 'Zea Technologies and Innovation Lab',
-          period: '2021 – 2023',
-          domain: 'AI Research & Cloud Systems R&D',
-          description: 'A technology research and innovation lab focusing on Artificial Intelligence (Computer Vision, CNN, NLP) and AWS Cloud computing architectures, prototyping production-ready intelligent software.',
-          objective: 'To pioneer cutting-edge AI model deployments and scalable cloud infrastructures, transforming theoretical research into high-impact digital prototypes.',
-          logo: '/assets/logos/0_ZeaTechLogo.jpg'
-        },
-        {
-          id: 3,
-          title: 'Ingenia Academy',
-          period: '2024 – 2025',
-          domain: 'Tech Education & Human Capital Enablement',
-          description: 'An educational technology initiative committed to democratizing computer science, programming, and IT knowledge for diverse audiences—ranging from beginners to aspiring tech professionals.',
-          objective: 'To close the digital literacy gap and cultivate market-ready engineering talent through hands-on curriculum, mentorship, and industry-oriented training.',
-          logo: '/assets/logos/ingenia2.png'
-        },
-        {
-          id: 4,
-          title: 'ToscaFlow Tech Solution',
-          period: '2025 – Present',
-          domain: 'Enterprise Systems & Digital Transformation',
-          link: 'https://toscaflow.id/',
-          description: 'Full-scale enterprise software and IT infrastructure provider. Delivers robust web/mobile applications, SaaS architectures, continuous 24/7 Operation Center monitoring, and 99.9% server uptime guarantees.',
-          objective: 'To accelerate corporate business transformations with secure, reliable, and high-performance IT solutions that power mission-critical operations.',
-          logo: '/assets/logos/3_toscaflow.png'
-        }
-      ]
-    },
-    pillars: {
-      tag: 'Pillars of Competence',
-      title: 'Engineering Scalable Systems.',
-      title2: 'Allocating Strategic Capital.',
-      cards: [
-        {
-          title: 'ToscaFlow Ecosystem',
-          status: '99.9% Production Uptime',
-          desc: 'End-to-end enterprise digital infrastructure, SaaS architectures, and mission-critical software engineering. Leading organizational strategy and tech direction as Founder & CEO.',
-          tags: ['Multi-tenant SaaS', 'Distributed Ops', 'High Concurrency'],
-          link: 'Explore Ecosystem →'
-        },
-        {
-          title: 'Financial Strategy & Capital',
-          status: 'Thesis-Driven',
-          desc: 'Macro-economic technology evaluation, discounted cash-flow (DCF) valuation models, and disciplined private capital allocation for long-term compounding.',
-          tags: ['Tech Equity Valuation', 'Risk Architecture', 'Capital Efficiency'],
-          metric: 'Focus: Asymmetric Risk-to-Reward & Digital Infrastructure'
-        },
-        {
-          title: 'Full-Stack Software Architecture',
-          status: 'Zero-Latency Focus',
-          desc: 'Engineering high-reliability web and mobile solutions using ASP.NET Core, PHP (Laravel/CI), Flutter, and modern TypeScript frameworks designed for maintainability and speed.',
-          tags: ['ASP.NET Core', 'Laravel / CI', 'Flutter', 'Next.js / TS']
-        },
-        {
-          title: 'Cloud Infrastructure & Quantitative Models',
-          status: 'AWS Certified Trainer',
-          desc: 'Server provisioning, network edge routing, automated pipelines, and quantitative algorithmic scripts bridging technology automation with market data analytics.',
-          tags: ['AWS Architecture', 'Cloudflare Edge', 'Linux Kernel', 'Algorithmic Models']
-        }
-      ]
     },
     portfolio: {
       tag: 'Track Record',
@@ -131,66 +139,152 @@ export const content = {
         }
       ]
     },
-    closingCta: {
-      tag: 'STRATEGIC PARTNERSHIP',
-      title: 'Architecting resilient systems. Scaling with calculated precision.',
-      btn: 'Initiate Inquiry'
-    },
-    metrics: {
-      stats: [
-        { value: '99.9%', label: 'UPTIME RELIABILITY', sub: 'Mission-critical enterprise SLA' },
-        { value: '6+ Years', label: 'COMPUTING & SYSTEMS R&D', sub: 'Foundations built since 2020' },
-        { value: '4 Brands', label: 'VENTURE ECOSYSTEMS', sub: 'From DF Computer to ToscaFlow' },
-        { value: '100%', label: 'DISCIPLINED ALLOCATION', sub: 'Systems & capital convergence' }
-      ]
+    metrics: [
+      {
+        number: "99.9%",
+        label: "UPTIME RELIABILITY",
+        description: "Enterprise SLA guaranteed for mission-critical deployments.",
+      },
+      {
+        number: "6+ Years",
+        label: "SYSTEMS EXPERIENCE",
+        description: "Continuous computing, IT hardware, and software development since 2020.",
+      },
+      {
+        number: "4 Brands",
+        label: "VENTURE ECOSYSTEMS",
+        description: "From technical computer support to enterprise SaaS solutions.",
+      },
+      {
+        number: "100%",
+        label: "DISCIPLINED ALLOCATION",
+        description: "Zero counterparty risk focus across defensive and compound assets.",
+      },
+    ],
+    pillars: {
+      badge: "PILLARS OF COMPETENCE",
+      heading: "Architecting for Scale. Engineering for Impact.",
+      subheading: "A dual-domain framework uniting enterprise technology architectures with measured capital execution.",
+      items: [
+        {
+          title: "ToscaFlow Ecosystem",
+          badge: "99.9% Production SLA",
+          description: "End-to-end enterprise digital infrastructure, custom software engineering, and continuous 24/7 Operations Center monitoring.",
+          tags: ["Multi-tenant SaaS", "Operation Center", "Enterprise Architecture"],
+          link: "[https://toscaflow.id](https://toscaflow.id)",
+          linkText: "Explore ToscaFlow →",
+        },
+        {
+          title: "Financial Strategy & Capital Allocation",
+          badge: "Thesis-Driven",
+          description: "Quantitative tech valuation, macroeconomic currency evaluations, and disciplined personal asset allocation frameworks.",
+          tags: ["Capital Preservation", "Tech Valuation", "Risk Management"],
+        },
+        {
+          title: "Full-Stack Software Architecture",
+          badge: "High-Concurrency",
+          description: "Engineering resilient, maintainable web and mobile applications using ASP.NET Core, PHP (Laravel/CI), and modern TypeScript.",
+          tags: ["ASP.NET Core", "Laravel / CI", "Flutter", "Next.js / TS"],
+        },
+        {
+          title: "Cloud Systems & Infrastructure",
+          badge: "AWS Certified Trainer",
+          description: "Server clustering, network edge protection, cloud architecture, and technical knowledge transfer programs.",
+          tags: ["AWS Architecture", "Linux Kernel", "Cloudflare Edge", "Database Ops"],
+        },
+      ],
     },
     assets: {
-      tag: 'CAPITAL PRESERVATION & GROWTH',
-      title: 'Disciplined Allocation. Asymmetric Resilience.',
-      desc: 'Beyond software architectures, my financial framework is anchored in proven stores of value, defensive currencies, and compounded instruments.',
-      cards: [
+      badge: "STRATEGIC CAPITAL ALLOCATION",
+      heading: "Defensive Reserves & Compounded Growth",
+      description: "A disciplined investment framework anchored in proven stores of value, defensive foreign reserves, and market indexes.",
+      items: [
         {
-          tag: 'CURRENCY / SAFE-HAVEN',
-          title: 'Swiss Franc (CHF)',
-          thesis: 'Capital preservation anchored in fiscal sovereignty, zero geopolitical friction, and negative debt-to-GDP correlations.',
-          role: 'Capital Defense & Hedging'
+          title: "Swiss Franc (Valas CHF)",
+          type: "CURRENCY / DEFENSIVE ASSET",
+          role: "Capital Protection & Hedging",
+          thesis: "Global safe-haven reserve backed by strong fiscal sovereignty, zero geopolitical friction, and low debt-to-GDP stability.",
+          logoSrc: "/assets/logos/swiss.svg",
+          isSvg: true,
         },
         {
-          tag: 'HARD ASSET / RESERVE',
-          title: 'Physical Gold (Emas)',
-          thesis: 'The uncompromised monetary base. Zero counterparty risk and timeless hedge against structural fiat debasement.',
-          role: 'Liquidity & Inflation Anchor'
+          title: "Physical Gold (Emas Fisik)",
+          type: "HARD ASSET / RESERVE",
+          role: "Inflation Hedge & Liquidity Base",
+          thesis: "Tangible monetary foundation with zero counterparty risk and a multi-century track record of preserving purchasing power.",
+          logoSrc: "/assets/logos/gold.svg",
+          isSvg: true,
         },
         {
-          tag: 'COMPOUND ASSETS / INDEX',
-          title: 'Diversified Mutual Funds (Reksadana)',
-          thesis: 'Systematic, risk-adjusted participation in high-performing debt securities and broad-market equity growth.',
-          role: 'Systematic Wealth Compounding'
-        }
-      ]
+          title: "Mutual Funds (Reksadana)",
+          type: "COMPOUND PORTFOLIO / INDEX",
+          role: "Systematic Wealth Compounding",
+          thesis: "Structured exposure to diversified fixed income and high-quality broad market equity instruments for compounding growth.",
+          logoSrc: "/assets/logos/reksadana.png",
+        },
+      ],
+    },
+    timeline: {
+      badge: "CAREER EVOLUTION",
+      heading: "The Venture Journey",
+      description: "The strategic progression from hands-on IT maintenance to AI lab research, tech education, and enterprise software leadership.",
+      items: [
+        {
+          period: "2020 – 2021",
+          brand: "DF Computer",
+          domain: "IT Hardware & Technical Infrastructure",
+          description: "The foundational stage providing hardware troubleshooting, OS deployment, and technical service for local consumers and businesses.",
+          objective: "To deliver reliable, accessible computer servicing while developing low-level hardware mastery directly in the field.",
+          link: "[https://daffayr.netlify.app/](https://daffayr.netlify.app/)",
+        },
+        {
+          period: "2021 – 2023",
+          brand: "Zea Technologies and Innovation Lab",
+          domain: "Artificial Intelligence & Cloud R&D",
+          description: "Applied technology research incubator exploring Computer Vision, CNN/NLP models, and scalable AWS Cloud architectures.",
+          objective: "To bridge academic research and enterprise automation through functional, intelligent software prototypes.",
+        },
+        {
+          period: "2024 – 2025",
+          brand: "Ingenia Academy",
+          domain: "Tech Education & Human Enablement",
+          description: "Educational technology initiative dedicated to democratizing computer programming and modern IT skills across all demographics.",
+          objective: "To narrow the digital talent divide by providing hands-on coding bootcamps and industry-aligned technical mentorship.",
+        },
+        {
+          period: "2025 – Present",
+          brand: "ToscaFlow Tech Solution",
+          domain: "Enterprise Software & Cloud Systems",
+          description: "Comprehensive software and digital infrastructure provider offering multi-tenant SaaS, 24/7 Operations, and high SLA guarantees.",
+          objective: "To accelerate enterprise digital transformations with resilient, secure, and mission-critical software ecosystems.",
+          link: "[https://toscaflow.id/](https://toscaflow.id/)",
+        },
+      ],
+    },
+    closingCta: {
+      badge: "STRATEGIC INQUIRY",
+      heading: "Architecting resilient systems. Scaling with calculated precision.",
+      button: "Initiate Collaboration",
     },
     footer: {
-      rights: 'All rights reserved.',
-      disclaimer: 'Disclaimer: This platform serves as a professional portfolio. Built with precision and Next.js.'
-    }
+      copyright: "© 2026 Farras Daffa Yassarramadhan. All rights reserved.",
+      disclaimer: "Engineered with Next.js, TypeScript & Tailwind CSS. Focused on Enterprise IT & Strategic Capital.",
+    },
   },
+
   id: {
     nav: {
-      about: 'Tentang / Pilar',
-      ventures: 'Ventura',
-      trackRecord: 'Rekam Jejak',
-      thesis: 'Tesis / Teknologi',
-      contact: 'Kontak',
-      cta: 'Hubungi / Koneksi'
+      pillars: "Pilar Keahlian",
+      timeline: "Jejak Karir",
+      assets: "Alokasi Aset",
+      cta: "Hubungi Saya",
     },
     hero: {
-      status: 'Memimpin ToscaFlow & Mengembangkan Strategi Finansial Mandiri',
-      titleLine1: 'Membangun Sistem Teknologi yang Kokoh.',
-      titleLine2: 'Mengelola Pertumbuhan Finansial',
-      titleLine3: 'dengan Presisi.',
-      description: 'Menghubungkan rekayasa perangkat lunak skala enterprise dengan strategi pengelolaan modal yang disiplin dan berorientasi jangka panjang.',
-      ctaPrimary: 'Jelajahi Portofolio',
-      ctaSecondary: 'Lihat Rekam Jejak'
+      badge: "Founder & CEO di ToscaFlow • Strategi Teknologi & Finansial",
+      headline: "Membangun Sistem Skalabel. Mengelola Modal Strategis.",
+      subheadline: "Menghubungkan rekayasa perangkat lunak skala enterprise dengan strategi alokasi modal pribadi yang disiplin dan terukur.",
+      ctaProjects: "Lihat Portofolio",
+      ctaContact: "Mulai Konsultasi",
     },
     aboutMe: {
       tag: 'Tentang Saya',
@@ -199,85 +293,8 @@ export const content = {
       p1: 'Profesional IT yang berdedikasi tinggi untuk menjembatani pengembangan teknis dan operasi bisnis. Dibekali fondasi kuat dalam Teknik Informatika dan keahlian praktis yang mencakup pengembangan web full-stack, administrasi server, serta manajemen infrastruktur.',
       p2: 'Memiliki rekam jejak yang terbukti dalam memimpin pusat operasi dan mengeksekusi proyek kompleks dari tahap perencanaan hingga deployment. Memiliki latar belakang analitis yang kuat, diperkaya oleh pengalaman di sektor keuangan, serta senantiasa memadukan ketajaman teknis dengan efisiensi operasional.'
     },
-    brandPath: {
-      tag: 'Jejak Evolusi Brand',
-      title: 'Timeline Ventura',
-      items: [
-        {
-          id: 1,
-          title: 'DF Computer',
-          period: '2020 – 2021',
-          domain: 'Fondasi Infrastruktur IT & Hardware',
-          link: 'https://daffayr.netlify.app/',
-          description: 'Layanan teknis komputer dan pemeliharaan perangkat keras untuk personal dan pelaku usaha lokal.',
-          objective: 'Menyediakan solusi perbaikan teknis komputer yang andal dan terjangkau sekaligus mengasah fondasi teknis sistem secara langsung di lapangan.',
-          logo: '/assets/logos/1_df_computer.png'
-        },
-        {
-          id: 2,
-          title: 'Zea Technologies and Innovation Lab',
-          period: '2021 – 2023',
-          domain: 'Riset AI & Arsitektur Cloud',
-          description: 'Eksplorasi kecerdasan buatan (AI) dan teknologi komputasi cloud berskala riset.',
-          objective: 'Menjadi inkubator riset berbasis AI dan Cloud dalam memecahkan problem otomasi serta membuktikan efektivitas komputasi modern skala nyata.',
-          logo: '/assets/logos/0_ZeaTechLogo.jpg'
-        },
-        {
-          id: 3,
-          title: 'Ingenia Academy',
-          period: '2024 – 2025',
-          domain: 'Edukasi Teknologi & Pemberdayaan SDM',
-          description: 'Program pelatihan dan edukasi teknologi praktis untuk mencetak talenta digital siap kerja.',
-          objective: 'Menjembatani kesenjangan talenta digital melalui kurikulum terapan, pendampingan intensif, serta pemberdayaan keahlian teknologi siap kerja.',
-          logo: '/assets/logos/ingenia2.png'
-        },
-        {
-          id: 4,
-          title: 'ToscaFlow Tech Solution',
-          period: '2025 – Present',
-          domain: 'Sistem Enterprise & Transformasi Digital',
-          link: 'https://toscaflow.id/',
-          description: 'Penyedia solusi software dan infrastruktur sistem digital terpadu untuk kebutuhan korporasi.',
-          objective: 'Mengakselerasi transformasi digital bisnis melalui ekosistem teknologi modern, aman, dan berkinerja tinggi untuk mendukung operasional perusahaan secara berkelanjutan.',
-          logo: '/assets/logos/3_toscaflow.png'
-        }
-      ]
-    },
-    pillars: {
-      tag: 'Pilar Kompetensi',
-      title: 'Rekayasa Sistem Skalabel.',
-      title2: 'Alokasi Modal Strategis.',
-      cards: [
-        {
-          title: 'Ekosistem ToscaFlow',
-          status: 'Jaminan Operasional Aktif 99,9%',
-          desc: 'Penyedia solusi teknologi dan software bisnis terpadu. Memimpin strategi operasional dan pengembangan sistem sebagai Founder & CEO.',
-          tags: ['SaaS Multi-tenant', 'Ops Terdistribusi', 'Konkurensi Tinggi'],
-          link: 'Eksplorasi Ekosistem →'
-        },
-        {
-          title: 'Strategi Finansial & Alokasi Modal',
-          status: 'THESIS-DRIVEN',
-          desc: 'Analisis nilai sektor teknologi, pemodelan keuangan terstruktur, serta pengelolaan modal yang disiplin demi menjaga stabilitas aset.',
-          tags: ['Valuasi Ekuitas Teknologi', 'Arsitektur Risiko', 'Efisiensi Modal'],
-          metric: 'Fokus: Risiko-ke-Imbal Asimetris & Infrastruktur Digital'
-        },
-        {
-          title: 'Arsitektur & Rekayasa Perangkat Lunak',
-          status: 'Kinerja Cepat & Andal',
-          desc: 'Membangun aplikasi web dan mobile yang aman, responsif, dan mudah dirawat untuk mendukung operasional bisnis modern.',
-          tags: ['ASP.NET Core', 'Laravel / CI', 'Flutter', 'Next.js / TS']
-        },
-        {
-          title: 'Infrastruktur Cloud & Pengolahan Data',
-          status: 'Instruktur Resmi AWS L4B',
-          desc: 'Pengelolaan server andal, konfigurasi jaringan aman, serta otomatisasi data komputasi untuk efisiensi sistem.',
-          tags: ['Arsitektur AWS', 'Cloudflare Edge', 'Kernel Linux', 'Model Algoritmik']
-        }
-      ]
-    },
     portfolio: {
-      tag: 'Rekam Jejak',
+      tag: 'Jejak Rekam',
       title: 'Pengalaman Profesional',
       viewAll: 'Lihat CV Lengkap',
       projects: [
@@ -304,47 +321,136 @@ export const content = {
         }
       ]
     },
-    closingCta: {
-      tag: 'KOLABORASI STRATEGIS',
-      title: 'Bangun sistem yang kokoh. Kembangkan bisnis dengan presisi.',
-      btn: 'Hubungi Saya'
-    },
-    metrics: {
-      stats: [
-        { value: '99.9%', label: 'RELIABILITAS UPTIME', sub: 'SLA enterprise mission-critical' },
-        { value: '6+ Tahun', label: 'RISET KOMPUTASI & SISTEM', sub: 'Fondasi dibangun sejak 2020' },
-        { value: '4 Brand', label: 'EKOSISTEM VENTURA', sub: 'Dari DF Computer hingga ToscaFlow' },
-        { value: '100%', label: 'ALOKASI DISIPLIN', sub: 'Konvergensi sistem & modal' }
-      ]
+    metrics: [
+      {
+        number: "99,9%",
+        label: "RELIABILITAS SISTEM",
+        description: "Jaminan SLA enterprise untuk operasional aplikasi skala bisnis.",
+      },
+      {
+        number: "6+ Tahun",
+        label: "PENGALAMAN SISTEM",
+        description: "Eksplorasi komputasi, perangkat keras, dan rekayasa software sejak 2020.",
+      },
+      {
+        number: "4 Brand",
+        label: "EVOLUSI BISNIS",
+        description: "Transformasi dari layanan teknis hardware hingga solusi SaaS enterprise.",
+      },
+      {
+        number: "100%",
+        label: "ALOKASI TERDISIPLIN",
+        description: "Fokus aset bebas risiko pihak ketiga untuk pertahanan dan pertumbuhan modal.",
+      },
+    ],
+    pillars: {
+      badge: "PILAR KOMPETENSI",
+      heading: "Arsitektur Skalabel. Eksekusi Berdampak Nyata.",
+      subheading: "Kerangka terpadu yang memadukan rekayasa infrastruktur enterprise dengan strategi finansial terukur.",
+      items: [
+        {
+          title: "Ekosistem ToscaFlow",
+          badge: "SLA Produksi 99,9%",
+          description: "Infrastruktur digital enterprise terpadu, rekayasa software kustom, dan pemantauan aktif 24/7 melalui Operation Center.",
+          tags: ["SaaS Multi-tenant", "Operation Center", "Arsitektur Enterprise"],
+          link: "[https://toscaflow.id](https://toscaflow.id)",
+          linkText: "Kunjungi ToscaFlow →",
+        },
+        {
+          title: "Strategi Finansial & Alokasi Modal",
+          badge: "Berbasis Tesis",
+          description: "Valuasi kuantitatif sektor teknologi, analisis mata uang makroekonomi, dan kerangka pengelolaan portofolio aset terdisiplin.",
+          tags: ["Proteksi Modal", "Valuasi Teknologi", "Manajemen Risiko"],
+        },
+        {
+          title: "Arsitektur Perangkat Lunak Full-Stack",
+          badge: "Konkurensi Tinggi",
+          description: "Pengembangan aplikasi web dan mobile yang tangguh dan mudah dirawat menggunakan ASP.NET Core, PHP (Laravel/CI), serta TypeScript modern.",
+          tags: ["ASP.NET Core", "Laravel / CI", "Flutter", "Next.js / TS"],
+        },
+        {
+          title: "Sistem Cloud & Infrastruktur Server",
+          badge: "Instruktur Resmi AWS",
+          description: "Manajemen server, proteksi edge network, arsitektur komputasi cloud, dan program transfer keahlian teknologi.",
+          tags: ["Arsitektur AWS", "Linux Kernel", "Cloudflare Edge", "Operasional Database"],
+        },
+      ],
     },
     assets: {
-      tag: 'ALOKASI MODAL STRATEGIS',
-      title: 'Alokasi Terdisiplin. Ketahanan Asimetris.',
-      desc: 'Di luar arsitektur perangkat lunak, kerangka finansial saya berakar pada instrumen penyimpan nilai teruji, mata uang defensif, dan instrumen pertumbuhan majemuk.',
-      cards: [
+      badge: "ALOKASI MODAL STRATEGIS",
+      heading: "Cadangan Defensif & Pertumbuhan Majemuk",
+      description: "Kerangka investasi disiplin yang bertumpu pada instrumen penyimpan nilai teruji, mata uang defensif, dan instrumen pasar modal.",
+      items: [
         {
-          tag: 'MATA UANG / SAFE-HAVEN',
-          title: 'Franc Swiss (CHF)',
-          thesis: 'Mata uang rujukan dunia dengan ketahanan tinggi terhadap gejolak ekonomi global dan inflasi jangka panjang.',
-          role: 'Penyimpan Nilai & Mata Uang Defensif'
+          title: "Swiss Franc (Valas CHF)",
+          type: "MATA UANG / ASET DEFENSIF",
+          role: "Proteksi Modal & Lindung Nilai",
+          thesis: "Cadangan safe-haven global dengan kedaulatan fiskal yang kokoh, netralitas geopolitik, dan rasio utang terhadap PDB yang sangat rendah.",
+          logoSrc: "/assets/logos/swiss.svg",
+          isSvg: true,
         },
         {
-          tag: 'ASET KERAS / CADANGAN',
-          title: 'Emas Fisik (GOLD)',
-          thesis: 'Pondasi keamanan finansial bebas risiko pihak ketiga yang teruji menjaga daya beli lintas generasi.',
-          role: 'Aset Riil & Lindung Nilai'
+          title: "Emas Fisik (Physical Gold)",
+          type: "ASET RIIL / CADANGAN UTAMA",
+          role: "Lindung Nilai Inflasi & Likuiditas",
+          thesis: "Fondasi moneter riil tanpa risiko pihak ketiga (counterparty risk) yang terbukti menjaga daya beli lintas generasi.",
+          logoSrc: "/assets/logos/gold.svg",
+          isSvg: true,
         },
         {
-          tag: 'ASET MAJEMUK / INDEKS',
-          title: 'Reksadana',
-          thesis: 'Pengembangan aset sistematis melalui portofolio pasar modal yang terdiversifikasi dan dikelola secara terencana.',
-          role: 'Pertumbuhan Modal Terukur'
-        }
-      ]
+          title: "Reksadana Terpilih (Mutual Funds)",
+          type: "PORTOFOLIO TERSTRUKTUR / INDEKS",
+          role: "Pertumbuhan Nilai Majemuk",
+          thesis: "Partisipasi sistematis pada instrumen pendapatan tetap dan pasar modal berkualitas tinggi untuk compounding aset jangka panjang.",
+          logoSrc: "/assets/logos/reksadana.png",
+        },
+      ],
+    },
+    timeline: {
+      badge: "LINIMASA KARIR",
+      heading: "Evolusi Brand & Perjalanan Usaha",
+      description: "Tahapan transformasi karir dari pemeliharaan perangkat keras, laboratorium riset AI, edukasi talenta, hingga solusi software korporasi.",
+      items: [
+        {
+          period: "2020 – 2021",
+          brand: "DF Computer",
+          domain: "Perangkat Keras & Pemeliharaan IT",
+          description: "Fase awal yang menyediakan servis hardware, instalasi sistem operasi, dan dukungan teknis langsung untuk pengguna personal serta UMKM.",
+          objective: "Menghadirkan layanan perbaikan komputer yang andal dan terjangkau sekaligus memperkuat pemahaman teknis dasar di lapangan.",
+          link: "[https://daffayr.netlify.app/](https://daffayr.netlify.app/)",
+        },
+        {
+          period: "2021 – 2023",
+          brand: "Zea Technologies and Innovation Lab",
+          domain: "Riset AI & Komputasi Cloud",
+          description: "Inkubator riset teknologi terapan yang mengeksplorasi model Computer Vision, CNN/NLP, serta arsitektur komputasi awan AWS.",
+          objective: "Menjembatani konsep riset mutakhir dengan otomatisasi industri melalui pembuatan prototipe software cerdas.",
+        },
+        {
+          period: "2024 – 2025",
+          brand: "Ingenia Academy",
+          domain: "Edukasi IT & Pemberdayaan Talenta",
+          description: "Inisiatif edukasi teknologi yang berfokus mendemokratisasi keahlian pemrograman dan literasi komputer untuk berbagai kalangan.",
+          objective: "Mengikis kesenjangan talenta digital melalui pelatihan praktis, kurikulum terapan, dan pendampingan terarah.",
+        },
+        {
+          period: "2025 – Sekarang",
+          brand: "ToscaFlow Tech Solution",
+          domain: "Software Korporat & Sistem Enterprise",
+          description: "Penyedia ekosistem software bisnis terpadu, aplikasi SaaS multi-tenant, pemantauan 24/7 Operation Center, dan jaminan reliabilitas tinggi.",
+          objective: "Mengakselerasi transformasi digital perusahaan melalui sistem software yang aman, stabil, dan berkinerja tinggi.",
+          link: "[https://toscaflow.id/](https://toscaflow.id/)",
+        },
+      ],
+    },
+    closingCta: {
+      badge: "KOLABORASI STRATEGIS",
+      heading: "Bangun sistem yang kokoh. Kelola pertumbuhan dengan presisi.",
+      button: "Mulai Diskusi",
     },
     footer: {
-      rights: 'Seluruh hak cipta dilindungi.',
-      disclaimer: 'Penafian: Platform ini berfungsi sebagai portofolio profesional. Dibangun dengan presisi menggunakan Next.js.'
-    }
-  }
+      copyright: "© 2026 Farras Daffa Yassarramadhan. Seluruh hak cipta dilindungi.",
+      disclaimer: "Dibangun dengan Next.js, TypeScript & Tailwind CSS. Berfokus pada Solusi IT Enterprise & Pengelolaan Modal.",
+    },
+  },
 };

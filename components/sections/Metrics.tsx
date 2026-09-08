@@ -10,7 +10,7 @@ export function Metrics() {
     <section id="metrics" className="py-20 md:py-28 px-4 sm:px-6 relative border-t border-border bg-background">
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {t.metrics.stats.map((item: any, idx: number) => (
+          {t.metrics.map((item: any, idx: number) => (
             <motion.div 
               key={idx}
               initial={{ opacity: 0, y: 20 }}
@@ -24,7 +24,7 @@ export function Metrics() {
               
               <div className="relative z-10">
                 <div className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground transition-colors duration-200 group-hover:text-accent drop-shadow-sm">
-                  {item.value}
+                  {item.number}
                 </div>
                 <div className="mt-3 text-xs font-mono font-semibold tracking-widest text-accent uppercase">
                   {item.label}
@@ -32,7 +32,7 @@ export function Metrics() {
               </div>
 
               <div className="relative z-10 mt-6 text-sm text-muted leading-relaxed font-medium">
-                {item.sub}
+                {item.description}
               </div>
             </motion.div>
           ))}
