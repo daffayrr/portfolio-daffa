@@ -1,32 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ExternalLink, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-
-const projects = [
-  {
-    title: 'ToscaFlow Tech Solution',
-    description: 'Founder & Chief Executive Officer. Leading operations and technical direction for end-to-end software solutions.',
-    tags: ['ASP.NET Core', 'Laravel', 'Flutter'],
-    metrics: 'Since Apr 2024',
-    featured: true,
-  },
-  {
-    title: 'Yayasan Sagasitas Indonesia',
-    description: 'Web Administrator, DevOps, & Database Administrator for sagasitas.org. Lead of SagaFarm IoT Program.',
-    tags: ['DevOps', 'AWS', 'IoT'],
-    metrics: 'Since Dec 2022',
-    featured: false,
-  },
-  {
-    title: 'Universitas Alma Ata',
-    description: 'Assistant Lecturer & KKN Tematik Team Leader. Educating students and leading community projects.',
-    tags: ['Education', 'Leadership', 'Tech'],
-    metrics: 'Since Mar 2024',
-    featured: false,
-  },
-];
 
 export function Portfolio() {
   const { t } = useLanguage();
@@ -56,7 +32,7 @@ export function Portfolio() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
+          {t.portfolio.projects.map((project: any, index: number) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -73,7 +49,6 @@ export function Portfolio() {
                 <div>
                   <div className="flex justify-between items-start mb-6">
                     <h4 className="text-2xl font-semibold text-foreground">{project.title}</h4>
-                    <ExternalLink size={20} className="text-muted group-hover:text-accent transition-colors" />
                   </div>
                   <p className="text-muted/90 mb-8 max-w-lg leading-relaxed">
                     {project.description}
@@ -82,7 +57,7 @@ export function Portfolio() {
                 
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-auto border-t border-border pt-6">
                   <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, i) => (
+                    {project.tags.map((tag: string, i: number) => (
                       <span key={i} className="px-3 py-1 text-[10px] font-bold tracking-wider uppercase text-muted bg-surface rounded-md border border-border">
                         {tag}
                       </span>

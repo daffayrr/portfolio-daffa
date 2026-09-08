@@ -51,7 +51,7 @@ export function AssetAllocation() {
               
               <div className="relative z-10 flex flex-col h-full">
                 {/* Vector Asset */}
-                <div className="w-16 h-16 rounded-xl bg-background border border-border flex items-center justify-center mb-6 p-3 group-hover:border-accent/30 transition-colors shadow-sm">
+                <div className="w-16 h-16 rounded-xl bg-white border border-border flex items-center justify-center mb-6 p-3 group-hover:border-accent/30 transition-colors shadow-sm">
                   <Image 
                     src={getAssetImage(index)} 
                     alt={card.title} 

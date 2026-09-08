@@ -106,7 +106,30 @@ export const content = {
     portfolio: {
       tag: 'Track Record',
       title: 'Professional Experience',
-      viewAll: 'View Full CV'
+      viewAll: 'View Full CV',
+      projects: [
+        {
+          title: 'ToscaFlow Tech Solution',
+          description: 'Founder & Chief Executive Officer. Leading operations and technical direction for end-to-end software solutions.',
+          tags: ['ASP.NET Core', 'Laravel', 'Flutter'],
+          metrics: 'Since Apr 2024',
+          featured: true,
+        },
+        {
+          title: 'Yayasan Sagasitas Indonesia',
+          description: 'Web Administrator, DevOps, & Database Administrator for sagasitas.org. Lead of SagaFarm IoT Program.',
+          tags: ['DevOps', 'AWS', 'IoT'],
+          metrics: 'Since Dec 2022',
+          featured: false,
+        },
+        {
+          title: 'Universitas Alma Ata',
+          description: 'Assistant Lecturer & KKN Tematik Team Leader. Educating students and leading community projects.',
+          tags: ['Education', 'Leadership', 'Tech'],
+          metrics: 'Since Mar 2024',
+          featured: false,
+        }
+      ]
     },
     closingCta: {
       tag: 'STRATEGIC PARTNERSHIP',
@@ -155,19 +178,19 @@ export const content = {
     nav: {
       about: 'Tentang / Pilar',
       ventures: 'Ventura',
-      trackRecord: 'Jejak Rekam',
+      trackRecord: 'Rekam Jejak',
       thesis: 'Tesis / Teknologi',
       contact: 'Kontak',
       cta: 'Hubungi / Koneksi'
     },
     hero: {
-      status: 'Founder ToscaFlow & Software Engineer',
-      titleLine1: 'Konvergensi',
-      titleLine2: 'Rekayasa Perangkat Lunak',
-      titleLine3: '& Arsitektur Skalabel.',
-      description: 'Berfokus pada pengembangan aplikasi web, mobile, dan arsitektur sistem yang skalabel. Terbiasa membangun solusi end-to-end menggunakan ASP.NET Core, Laravel, dan Flutter, didukung keahlian administrasi server dan database.',
-      ctaPrimary: 'Eksplorasi ToscaFlow',
-      ctaSecondary: 'Lihat Jejak Rekam'
+      status: 'Memimpin ToscaFlow & Mengembangkan Strategi Finansial Mandiri',
+      titleLine1: 'Membangun Sistem Teknologi yang Kokoh.',
+      titleLine2: 'Mengelola Pertumbuhan Finansial',
+      titleLine3: 'dengan Presisi.',
+      description: 'Menghubungkan rekayasa perangkat lunak skala enterprise dengan strategi pengelolaan modal yang disiplin dan berorientasi jangka panjang.',
+      ctaPrimary: 'Jelajahi Portofolio',
+      ctaSecondary: 'Lihat Rekam Jejak'
     },
     aboutMe: {
       tag: 'Tentang Saya',
@@ -186,7 +209,7 @@ export const content = {
           period: '2020 – 2021',
           domain: 'Fondasi Infrastruktur IT & Hardware',
           link: 'https://daffayr.netlify.app/',
-          description: 'Titik awal perintisan layanan teknis komputer dan maintenance hardware. Berfokus pada penanganan sistem operasi, troubleshooting perangkat, serta pembuatan website esensial untuk personal dan UMKM.',
+          description: 'Layanan teknis komputer dan pemeliharaan perangkat keras untuk personal dan pelaku usaha lokal.',
           objective: 'Menyediakan solusi perbaikan teknis komputer yang andal dan terjangkau sekaligus mengasah fondasi teknis sistem secara langsung di lapangan.',
           logo: '/assets/logos/1_df_computer.png'
         },
@@ -195,7 +218,7 @@ export const content = {
           title: 'Zea Technologies and Innovation Lab',
           period: '2021 – 2023',
           domain: 'Riset AI & Arsitektur Cloud',
-          description: 'Laboratorium riset dan inovasi teknologi yang berfokus pada eksplorasi Artificial Intelligence (Computer Vision, CNN, NLP) dan arsitektur AWS Cloud untuk memvalidasi purwarupa sistem cerdas.',
+          description: 'Eksplorasi kecerdasan buatan (AI) dan teknologi komputasi cloud berskala riset.',
           objective: 'Menjadi inkubator riset berbasis AI dan Cloud dalam memecahkan problem otomasi serta membuktikan efektivitas komputasi modern skala nyata.',
           logo: '/assets/logos/0_ZeaTechLogo.jpg'
         },
@@ -204,7 +227,7 @@ export const content = {
           title: 'Ingenia Academy',
           period: '2024 – 2025',
           domain: 'Edukasi Teknologi & Pemberdayaan SDM',
-          description: 'Inisiatif edukasi teknologi yang berdedikasi membuka akses pembelajaran IT dan literasi pemrograman untuk berbagai kalangan, mulai dari pemula hingga calon talenta profesional.',
+          description: 'Program pelatihan dan edukasi teknologi praktis untuk mencetak talenta digital siap kerja.',
           objective: 'Menjembatani kesenjangan talenta digital melalui kurikulum terapan, pendampingan intensif, serta pemberdayaan keahlian teknologi siap kerja.',
           logo: '/assets/logos/ingenia2.png'
         },
@@ -214,7 +237,7 @@ export const content = {
           period: '2025 – Present',
           domain: 'Sistem Enterprise & Transformasi Digital',
           link: 'https://toscaflow.id/',
-          description: 'Perusahaan solusi teknologi terpadu penyedia sistem software skala enterprise. Menghadirkan aplikasi web/mobile kustom, arsitektur SaaS, pemantauan 24/7 Operation Center, dan jaminan reliabilitas infrastruktur (99.9% uptime).',
+          description: 'Penyedia solusi software dan infrastruktur sistem digital terpadu untuk kebutuhan korporasi.',
           objective: 'Mengakselerasi transformasi digital bisnis melalui ekosistem teknologi modern, aman, dan berkinerja tinggi untuk mendukung operasional perusahaan secara berkelanjutan.',
           logo: '/assets/logos/3_toscaflow.png'
         }
@@ -227,41 +250,64 @@ export const content = {
       cards: [
         {
           title: 'Ekosistem ToscaFlow',
-          status: '99.9% Uptime Produksi',
-          desc: 'Infrastruktur digital enterprise end-to-end, arsitektur SaaS, dan rekayasa perangkat lunak mission-critical. Memimpin strategi organisasi dan arah teknologi sebagai Founder & CEO.',
+          status: 'Jaminan Operasional Aktif 99,9%',
+          desc: 'Penyedia solusi teknologi dan software bisnis terpadu. Memimpin strategi operasional dan pengembangan sistem sebagai Founder & CEO.',
           tags: ['SaaS Multi-tenant', 'Ops Terdistribusi', 'Konkurensi Tinggi'],
           link: 'Eksplorasi Ekosistem →'
         },
         {
-          title: 'Strategi Finansial & Modal',
-          status: 'Didorong Tesis',
-          desc: 'Evaluasi teknologi makro-ekonomi, model valuasi arus kas terdiskonto (DCF), dan alokasi modal privat yang disiplin untuk pemajemukan jangka panjang.',
+          title: 'Strategi Finansial & Alokasi Modal',
+          status: 'THESIS-DRIVEN',
+          desc: 'Analisis nilai sektor teknologi, pemodelan keuangan terstruktur, serta pengelolaan modal yang disiplin demi menjaga stabilitas aset.',
           tags: ['Valuasi Ekuitas Teknologi', 'Arsitektur Risiko', 'Efisiensi Modal'],
           metric: 'Fokus: Risiko-ke-Imbal Asimetris & Infrastruktur Digital'
         },
         {
-          title: 'Arsitektur Perangkat Lunak Full-Stack',
-          status: 'Fokus Nol-Latensi',
-          desc: 'Merekayasa solusi web dan mobile reliabilitas tinggi menggunakan ASP.NET Core, PHP (Laravel/CI), Flutter, dan framework TypeScript modern yang dirancang untuk skalabilitas dan kecepatan.',
+          title: 'Arsitektur & Rekayasa Perangkat Lunak',
+          status: 'Kinerja Cepat & Andal',
+          desc: 'Membangun aplikasi web dan mobile yang aman, responsif, dan mudah dirawat untuk mendukung operasional bisnis modern.',
           tags: ['ASP.NET Core', 'Laravel / CI', 'Flutter', 'Next.js / TS']
         },
         {
-          title: 'Infrastruktur Cloud & Model Kuantitatif',
-          status: 'Pelatih Tersertifikasi AWS',
-          desc: 'Penyediaan server, routing edge jaringan, pipeline terotomatisasi, dan skrip algoritmik kuantitatif yang menjembatani otomasi teknologi dengan analitik data pasar.',
+          title: 'Infrastruktur Cloud & Pengolahan Data',
+          status: 'Instruktur Resmi AWS L4B',
+          desc: 'Pengelolaan server andal, konfigurasi jaringan aman, serta otomatisasi data komputasi untuk efisiensi sistem.',
           tags: ['Arsitektur AWS', 'Cloudflare Edge', 'Kernel Linux', 'Model Algoritmik']
         }
       ]
     },
     portfolio: {
-      tag: 'Jejak Rekam',
+      tag: 'Rekam Jejak',
       title: 'Pengalaman Profesional',
-      viewAll: 'Lihat CV Lengkap'
+      viewAll: 'Lihat CV Lengkap',
+      projects: [
+        {
+          title: 'ToscaFlow Tech Solution',
+          description: 'Pendiri & Pejabat Eksekutif Tertinggi (CEO). Memimpin operasi dan arah teknis untuk solusi perangkat lunak end-to-end.',
+          tags: ['ASP.NET Core', 'Laravel', 'Flutter'],
+          metrics: 'Sejak Apr 2024',
+          featured: true,
+        },
+        {
+          title: 'Yayasan Sagasitas Indonesia',
+          description: 'Administrator Web, DevOps, & Administrator Database untuk sagasitas.org. Pemimpin Program IoT SagaFarm.',
+          tags: ['DevOps', 'AWS', 'IoT'],
+          metrics: 'Sejak Des 2022',
+          featured: false,
+        },
+        {
+          title: 'Universitas Alma Ata',
+          description: 'Asisten Dosen & Ketua Tim KKN Tematik. Mendidik mahasiswa dan memimpin proyek pengabdian masyarakat.',
+          tags: ['Edukasi', 'Kepemimpinan', 'Teknologi'],
+          metrics: 'Sejak Mar 2024',
+          featured: false,
+        }
+      ]
     },
     closingCta: {
       tag: 'KOLABORASI STRATEGIS',
-      title: 'Bangun sistem yang kokoh. Kelola pertumbuhan dengan presisi.',
-      btn: 'Mulai Kolaborasi'
+      title: 'Bangun sistem yang kokoh. Kembangkan bisnis dengan presisi.',
+      btn: 'Hubungi Saya'
     },
     metrics: {
       stats: [
@@ -278,21 +324,21 @@ export const content = {
       cards: [
         {
           tag: 'MATA UANG / SAFE-HAVEN',
-          title: 'Swiss Franc (CHF)',
-          thesis: 'Perlindungan modal berbasis kedaulatan fiskal yang kuat, minim risiko geopolitik, dan rekam jejak stabilitas jangka panjang.',
-          role: 'Pertahanan Modal & Lindung Nilai'
+          title: 'Franc Swiss (CHF)',
+          thesis: 'Mata uang rujukan dunia dengan ketahanan tinggi terhadap gejolak ekonomi global dan inflasi jangka panjang.',
+          role: 'Penyimpan Nilai & Mata Uang Defensif'
         },
         {
           tag: 'ASET KERAS / CADANGAN',
-          title: 'Physical Gold (Emas)',
-          thesis: 'Fondasi moneter tanpa risiko pihak ketiga (counterparty risk) sebagai lindung nilai alami terhadap devaluasi mata uang fiat.',
-          role: 'Jangkar Likuiditas & Inflasi'
+          title: 'Emas Fisik (GOLD)',
+          thesis: 'Pondasi keamanan finansial bebas risiko pihak ketiga yang teruji menjaga daya beli lintas generasi.',
+          role: 'Aset Riil & Lindung Nilai'
         },
         {
           tag: 'ASET MAJEMUK / INDEKS',
-          title: 'Diversified Mutual Funds (Reksadana)',
-          thesis: 'Partisipasi sistematis pada pertumbuhan instrumen pendapatan tetap dan pasar modal dengan manajemen risiko terukur.',
-          role: 'Pemajemukan Kekayaan Sistematis'
+          title: 'Reksadana',
+          thesis: 'Pengembangan aset sistematis melalui portofolio pasar modal yang terdiversifikasi dan dikelola secara terencana.',
+          role: 'Pertumbuhan Modal Terukur'
         }
       ]
     },
