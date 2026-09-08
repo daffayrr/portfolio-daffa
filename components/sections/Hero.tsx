@@ -16,7 +16,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex items-center gap-2 px-3 py-1.5 mb-8 rounded-full bg-white/[0.03] border border-white/[0.08]"
+          className="flex items-center gap-2 px-3 py-1.5 mb-8 rounded-full bg-surface/50 border border-border"
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
@@ -31,11 +31,11 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-6"
+          className="text-5xl md:text-7xl font-bold text-foreground tracking-tight leading-[1.1] mb-6"
         >
           {t.hero.titleLine1} <br className="hidden md:block" />
           {t.hero.titleLine2} <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-muted-dark">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground to-muted-dark">
             {t.hero.titleLine3}
           </span>
         </motion.h1>
@@ -64,8 +64,8 @@ export function Hero() {
             {t.hero.ctaPrimary}
           </a>
           <a 
-            href="#thesis"
-            className="px-8 py-4 text-sm font-semibold text-white bg-white/[0.03] border border-white/[0.08] rounded-lg hover:bg-white/[0.05] transition-colors text-center"
+            href="#track-record"
+            className="px-8 py-4 text-sm font-semibold text-foreground bg-surface/50 border border-border rounded-lg hover:bg-surface hover:border-accent/50 transition-all text-center group"
           >
             {t.hero.ctaSecondary}
           </a>

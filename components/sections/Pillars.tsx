@@ -1,14 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Server, Code, TrendingUp } from 'lucide-react';
+import { TrendingUp, Terminal, Cloud } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export function Pillars() {
   const { t } = useLanguage();
+  const cards = t.pillars.cards;
 
   return (
-    <section id="about" className="py-24 px-6 relative border-t border-white/[0.05]">
+    <section id="about" className="py-24 px-6 relative z-10 border-t border-border">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -20,76 +21,180 @@ export function Pillars() {
           <h2 className="text-xs font-bold tracking-[0.2em] text-accent uppercase mb-4">
             {t.pillars.tag}
           </h2>
-          <h3 className="text-3xl md:text-4xl font-medium text-white mb-6">
-            {t.pillars.title} <br className="hidden md:block" />
-            {t.pillars.title2}
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-medium text-foreground tracking-tight leading-tight">
+            {t.pillars.title} <br />
+            <span className="text-muted-dark">{t.pillars.title2}</span>
           </h3>
         </motion.div>
 
-        {/* Bento Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
+        {/* 2x2 Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           
-          {/* Card 1: ToscaFlow Ecosystem (Featured) */}
+          {/* Card 1: Enterprise Ecosystem (ToscaFlow) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="md:col-span-3 lg:col-span-2 group p-8 rounded-2xl bg-gradient-to-br from-[#121619] to-[#0B0E0F] border border-white/[0.08] hover:border-accent/30 transition-all relative overflow-hidden"
+            transition={{ duration: 0.4 }}
+            className="group relative rounded-2xl border border-border bg-surface/80 p-7 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_0_30px_-10px_rgba(0,242,195,0.15)] flex flex-col justify-between h-full"
           >
-            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-              <Server size={120} />
-            </div>
-            <div className="relative z-10 flex flex-col h-full justify-center">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-accent rounded flex items-center justify-center font-bold text-black text-xl shadow-[0_0_15px_rgba(0,242,195,0.3)]">
-                  TF
+            <div>
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-accent rounded flex items-center justify-center font-bold text-black text-xl shadow-[0_0_15px_rgba(0,242,195,0.3)]">
+                    TF
+                  </div>
+                  <h4 className="text-lg md:text-xl text-foreground font-semibold">{cards[0].title}</h4>
                 </div>
-                <h4 className="text-2xl text-white font-semibold">{t.pillars.card1Title}</h4>
+                
+                {/* Top-Right Status */}
+                <div className="inline-flex items-center gap-2 bg-background/50 border border-border px-3 py-1.5 rounded-full self-start">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                  </span>
+                  <span className="text-[10px] font-bold tracking-wider uppercase text-foreground">{cards[0].status}</span>
+                </div>
               </div>
-              <p className="text-muted text-lg max-w-lg leading-relaxed mb-8">
-                {t.pillars.card1Desc}
+
+              <p className="text-muted/80 text-sm md:text-base leading-relaxed mb-6">
+                {cards[0].desc}
               </p>
-              <div className="flex gap-4">
-                <a href="https://toscaflow.id" target="_blank" rel="noreferrer" className="text-sm font-semibold text-accent hover:text-white transition-colors">
-                  Explore Ecosystem &rarr;
-                </a>
+            </div>
+
+            {/* Bottom Metrics & Tags */}
+            <div className="flex flex-col gap-4 mt-auto">
+              <div className="flex flex-wrap gap-2">
+                {cards[0].tags.map((tag: string, i: number) => (
+                  <span key={i} className="text-[10px] font-semibold tracking-wider text-muted px-2.5 py-1 bg-background rounded-md border border-border flex items-center gap-1.5">
+                    <span className="w-1 h-1 rounded-full bg-accent/70"></span>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <a href="https://toscaflow.id" target="_blank" rel="noreferrer" className="text-xs font-semibold text-accent hover:text-foreground transition-colors group/link mt-2 inline-flex items-center gap-1">
+                {cards[0].link}
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Card 2: Strategic Finance & Capital Allocation */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="group relative rounded-2xl border border-border bg-surface/80 p-7 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_0_30px_-10px_rgba(0,242,195,0.15)] flex flex-col justify-between h-full"
+          >
+            <div>
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-accent/10 border border-accent/20 rounded flex items-center justify-center">
+                    <TrendingUp className="text-accent" size={20} />
+                  </div>
+                  <h4 className="text-lg md:text-xl text-foreground font-semibold max-w-[200px] leading-tight">{cards[1].title}</h4>
+                </div>
+                
+                {/* Top-Right Status */}
+                <div className="inline-flex items-center bg-background/50 border border-border px-3 py-1.5 rounded-full self-start">
+                  <span className="text-[10px] font-bold tracking-wider uppercase text-muted">{cards[1].status}</span>
+                </div>
+              </div>
+
+              <p className="text-muted/80 text-sm md:text-base leading-relaxed mb-6">
+                {cards[1].desc}
+              </p>
+            </div>
+
+            {/* Bottom Metrics & Tags */}
+            <div className="flex flex-col gap-4 mt-auto">
+              <div className="flex flex-wrap gap-2">
+                {cards[1].tags.map((tag: string, i: number) => (
+                  <span key={i} className="text-[10px] font-bold tracking-widest uppercase text-muted bg-background px-2.5 py-1 rounded-md border border-border">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="text-[10px] font-bold text-accent uppercase tracking-wider mt-2 bg-accent/5 border border-accent/10 inline-block px-3 py-1.5 rounded-md w-fit">
+                {cards[1].metric}
               </div>
             </div>
           </motion.div>
 
-          {/* Card 2: Systems & Software */}
+          {/* Card 3: Core Engineering & Systems */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="md:col-span-1 p-8 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.1] transition-all flex flex-col"
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="group relative rounded-2xl border border-border bg-surface/80 p-7 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_0_30px_-10px_rgba(0,242,195,0.15)] flex flex-col justify-between h-full"
           >
-            <div className="w-12 h-12 rounded-xl bg-[#121619] border border-white/[0.08] flex items-center justify-center mb-6">
-              <Code className="text-muted" size={24} />
+            <div>
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-background border border-border rounded flex items-center justify-center">
+                    <Terminal className="text-muted group-hover:text-foreground transition-colors" size={20} />
+                  </div>
+                  <h4 className="text-lg md:text-xl text-foreground font-semibold max-w-[200px] leading-tight">{cards[2].title}</h4>
+                </div>
+                
+                {/* Top-Right Status */}
+                <div className="inline-flex items-center bg-background/50 border border-border px-3 py-1.5 rounded-full self-start">
+                  <span className="text-[10px] font-bold tracking-wider uppercase text-muted">{cards[2].status}</span>
+                </div>
+              </div>
+
+              <p className="text-muted/80 text-sm md:text-base leading-relaxed mb-6">
+                {cards[2].desc}
+              </p>
             </div>
-            <h4 className="text-white font-medium text-lg mb-3">{t.pillars.card2Title}</h4>
-            <p className="text-muted/80 leading-relaxed text-sm">
-              {t.pillars.card2Desc}
-            </p>
+
+            {/* Bottom Tech Pills */}
+            <div className="flex flex-wrap gap-2 mt-auto">
+              {cards[2].tags.map((tag: string, i: number) => (
+                <span key={i} className="text-[10px] font-semibold tracking-wider text-muted px-2.5 py-1 bg-background rounded-md border border-border">
+                  {tag}
+                </span>
+              ))}
+            </div>
           </motion.div>
 
-          {/* Card 3: Strategic Capital */}
+          {/* Card 4: Quantitative Intelligence & Cloud Infrastructure */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="md:col-span-3 lg:col-span-1 p-8 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.1] transition-all flex flex-col"
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="group relative rounded-2xl border border-border bg-surface/80 p-7 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_0_30px_-10px_rgba(0,242,195,0.15)] flex flex-col justify-between h-full"
           >
-            <div className="w-12 h-12 rounded-xl bg-[#121619] border border-white/[0.08] flex items-center justify-center mb-6">
-              <TrendingUp className="text-muted" size={24} />
+            <div>
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-background border border-border rounded flex items-center justify-center">
+                    <Cloud className="text-muted group-hover:text-foreground transition-colors" size={20} />
+                  </div>
+                  <h4 className="text-lg md:text-xl text-foreground font-semibold max-w-[200px] leading-tight">{cards[3].title}</h4>
+                </div>
+                
+                {/* Top-Right Status */}
+                <div className="inline-flex items-center bg-background/50 border border-border px-3 py-1.5 rounded-full self-start">
+                  <span className="text-[10px] font-bold tracking-wider uppercase text-muted">{cards[3].status}</span>
+                </div>
+              </div>
+
+              <p className="text-muted/80 text-sm md:text-base leading-relaxed mb-6">
+                {cards[3].desc}
+              </p>
             </div>
-            <h4 className="text-white font-medium text-lg mb-3">{t.pillars.card3Title}</h4>
-            <p className="text-muted/80 leading-relaxed text-sm">
-              {t.pillars.card3Desc}
-            </p>
+
+            {/* Bottom Tech Pills */}
+            <div className="flex flex-wrap gap-2 mt-auto">
+              {cards[3].tags.map((tag: string, i: number) => (
+                <span key={i} className="text-[10px] font-semibold tracking-wider text-muted px-2.5 py-1 bg-background rounded-md border border-border">
+                  {tag}
+                </span>
+              ))}
+            </div>
           </motion.div>
 
         </div>

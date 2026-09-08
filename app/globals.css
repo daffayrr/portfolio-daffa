@@ -1,22 +1,40 @@
 @import "tailwindcss";
 
 :root {
+  --background: #FFFFFF;
+  --foreground: #080808;
+  --surface: #F8FAFC;
+  --muted: #475569;
+  --muted-dark: #64748B;
+  --border: rgba(0, 0, 0, 0.08);
+}
+
+.dark {
   --background: #080808;
   --foreground: #FFFFFF;
+  --surface: #111415;
+  --muted: #94A3B8;
+  --muted-dark: #64748B;
+  --border: rgba(255, 255, 255, 0.08);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   
-  --color-surface: #111415;
+  --color-surface: var(--surface);
   --color-accent: #00F2C3;
   --color-accent-dark: #14B8A6;
-  --color-muted: #94A3B8;
-  --color-muted-dark: #64748B;
+  --color-muted: var(--muted);
+  --color-muted-dark: var(--muted-dark);
+  --color-border: var(--border);
   
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -27,7 +45,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom utility for the ambient tosca glow */
 @layer utilities {
   .bg-ambient-glow {
     background: radial-gradient(circle at 50% 0%, rgba(0, 242, 195, 0.15) 0%, transparent 60%);

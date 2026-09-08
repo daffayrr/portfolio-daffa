@@ -32,7 +32,7 @@ export function Portfolio() {
   const { t } = useLanguage();
 
   return (
-    <section id="track-record" className="py-24 px-6 relative border-t border-white/[0.05]">
+    <section id="track-record" className="py-24 px-6 relative border-t border-border">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -45,14 +45,14 @@ export function Portfolio() {
             <h2 className="text-xs font-bold tracking-[0.2em] text-accent uppercase mb-4">
               {t.portfolio.tag}
             </h2>
-            <h3 className="text-3xl md:text-4xl font-medium text-white">
+            <h3 className="text-3xl md:text-4xl font-medium text-foreground">
               {t.portfolio.title}
             </h3>
           </div>
-          <button className="flex items-center gap-2 text-sm text-muted hover:text-white transition-colors group">
+          <a href="/assets/cv.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors group">
             {t.portfolio.viewAll} 
             <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </button>
+          </a>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -63,7 +63,7 @@ export function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`group relative p-8 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-accent/40 transition-all overflow-hidden ${
+              className={`group relative p-8 rounded-2xl bg-surface/50 border border-border hover:border-accent/40 transition-all overflow-hidden ${
                 project.featured ? 'md:col-span-2' : 'md:col-span-1'
               }`}
             >
@@ -72,7 +72,7 @@ export function Portfolio() {
               <div className="relative z-10 flex flex-col h-full justify-between">
                 <div>
                   <div className="flex justify-between items-start mb-6">
-                    <h4 className="text-2xl font-semibold text-white">{project.title}</h4>
+                    <h4 className="text-2xl font-semibold text-foreground">{project.title}</h4>
                     <ExternalLink size={20} className="text-muted group-hover:text-accent transition-colors" />
                   </div>
                   <p className="text-muted/90 mb-8 max-w-lg leading-relaxed">
@@ -80,10 +80,10 @@ export function Portfolio() {
                   </p>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-auto border-t border-white/[0.08] pt-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-auto border-t border-border pt-6">
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, i) => (
-                      <span key={i} className="px-3 py-1 text-[10px] font-bold tracking-wider uppercase text-muted bg-[#121619] rounded-md border border-white/[0.05]">
+                      <span key={i} className="px-3 py-1 text-[10px] font-bold tracking-wider uppercase text-muted bg-surface rounded-md border border-border">
                         {tag}
                       </span>
                     ))}
