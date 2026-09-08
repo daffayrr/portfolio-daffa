@@ -115,10 +115,35 @@ export const content = {
     },
     metrics: {
       stats: [
-        { label: 'Years Experience', value: '4+' },
-        { label: 'Cloud Tech', value: 'AWS' },
-        { label: 'Tech Stack', value: '.NET/PHP' },
-        { label: 'IoT Projects', value: 'SagaFarm' }
+        { value: '99.9%', label: 'UPTIME RELIABILITY', sub: 'Mission-critical enterprise SLA' },
+        { value: '6+ Years', label: 'COMPUTING & SYSTEMS R&D', sub: 'Foundations built since 2020' },
+        { value: '4 Brands', label: 'VENTURE ECOSYSTEMS', sub: 'From DF Computer to ToscaFlow' },
+        { value: '100%', label: 'DISCIPLINED ALLOCATION', sub: 'Systems & capital convergence' }
+      ]
+    },
+    assets: {
+      tag: 'CAPITAL PRESERVATION & GROWTH',
+      title: 'Disciplined Allocation. Asymmetric Resilience.',
+      desc: 'Beyond software architectures, my financial framework is anchored in proven stores of value, defensive currencies, and compounded instruments.',
+      cards: [
+        {
+          tag: 'CURRENCY / SAFE-HAVEN',
+          title: 'Swiss Franc (CHF)',
+          thesis: 'Capital preservation anchored in fiscal sovereignty, zero geopolitical friction, and negative debt-to-GDP correlations.',
+          role: 'Capital Defense & Hedging'
+        },
+        {
+          tag: 'HARD ASSET / RESERVE',
+          title: 'Physical Gold (Emas)',
+          thesis: 'The uncompromised monetary base. Zero counterparty risk and timeless hedge against structural fiat debasement.',
+          role: 'Liquidity & Inflation Anchor'
+        },
+        {
+          tag: 'COMPOUND ASSETS / INDEX',
+          title: 'Diversified Mutual Funds (Reksadana)',
+          thesis: 'Systematic, risk-adjusted participation in high-performing debt securities and broad-market equity growth.',
+          role: 'Systematic Wealth Compounding'
+        }
       ]
     },
     footer: {
@@ -240,10 +265,35 @@ export const content = {
     },
     metrics: {
       stats: [
-        { label: 'Tahun Pengalaman', value: '4+' },
-        { label: 'Teknologi Cloud', value: 'AWS' },
-        { label: 'Tech Stack', value: '.NET/PHP' },
-        { label: 'Proyek IoT', value: 'SagaFarm' }
+        { value: '99.9%', label: 'RELIABILITAS UPTIME', sub: 'SLA enterprise mission-critical' },
+        { value: '6+ Tahun', label: 'RISET KOMPUTASI & SISTEM', sub: 'Fondasi dibangun sejak 2020' },
+        { value: '4 Brand', label: 'EKOSISTEM VENTURA', sub: 'Dari DF Computer hingga ToscaFlow' },
+        { value: '100%', label: 'ALOKASI DISIPLIN', sub: 'Konvergensi sistem & modal' }
+      ]
+    },
+    assets: {
+      tag: 'ALOKASI MODAL STRATEGIS',
+      title: 'Alokasi Terdisiplin. Ketahanan Asimetris.',
+      desc: 'Di luar arsitektur perangkat lunak, kerangka finansial saya berakar pada instrumen penyimpan nilai teruji, mata uang defensif, dan instrumen pertumbuhan majemuk.',
+      cards: [
+        {
+          tag: 'MATA UANG / SAFE-HAVEN',
+          title: 'Swiss Franc (CHF)',
+          thesis: 'Perlindungan modal berbasis kedaulatan fiskal yang kuat, minim risiko geopolitik, dan rekam jejak stabilitas jangka panjang.',
+          role: 'Pertahanan Modal & Lindung Nilai'
+        },
+        {
+          tag: 'ASET KERAS / CADANGAN',
+          title: 'Physical Gold (Emas)',
+          thesis: 'Fondasi moneter tanpa risiko pihak ketiga (counterparty risk) sebagai lindung nilai alami terhadap devaluasi mata uang fiat.',
+          role: 'Jangkar Likuiditas & Inflasi'
+        },
+        {
+          tag: 'ASET MAJEMUK / INDEKS',
+          title: 'Diversified Mutual Funds (Reksadana)',
+          thesis: 'Partisipasi sistematis pada pertumbuhan instrumen pendapatan tetap dan pasar modal dengan manajemen risiko terukur.',
+          role: 'Pemajemukan Kekayaan Sistematis'
+        }
       ]
     },
     footer: {

@@ -1,59 +1,73 @@
-Act as a Lead UI/UX Engineer and Senior Next.js Developer.
-
-Refactor the "Pillars of Competence" section. The current layout is visually broken: cards have unbalanced heights, empty dead space, lingering placeholder artifacts, and the content ignores my strategic focus on Finance.
-
-We will rebuild this section as a perfectly balanced "Dual-Pillar Ecosystem" (Technology & Capital), matching the institutional luxury aesthetic of ronaldcapital.com and wealthclub.id.
+Act as a Senior Next.js and Tailwind CSS Engineer. Fix two layout and asset loading bugs in the codebase:
 
 ---
 
-### 1. Headline & Narrative Convergence
-Update the section header so it explicitly reflects both IT and Finance:
-- **Eyebrow / Category:** `PILLARS OF COMPETENCE`
-- **Main Heading (EN):** 
-  "Engineering Scalable Systems.
-   Allocating Strategic Capital."
-- **Main Heading (ID):** 
-  "Rekayasa Sistem Skalabel.
-   Alokasi Modal Strategis."
+### 1. Fix Image 404 Error (`/assets/logos/reksadana.png`)
+Next.js serves static files directly from the `public` directory at root level. 
+The image is stored inside the `logos` directory.
 
----
+**Fix requirements:**
+- Check where the file is placed:
+  - If placed in `public/logos/reksadana.png`, the `src` attribute MUST be `/logos/reksadana.png`.
+  - If placed in `public/assets/logos/reksadana.png`, ensure the folder path exists.
+- In the asset allocation component, update the Next.js `<Image />` component to use the verified relative path:
+```tsx
+import Image from 'next/image';
 
-### 2. Grid Structure: Symmetrical 2x2 Equal-Height Grid
-Use `grid grid-cols-1 md:grid-cols-2 gap-6` where all 4 cards have `h-full flex flex-col justify-between`. Remove all lingering gray placeholder pill containers.
+<div className="w-12 h-12 flex items-center justify-center p-2 rounded-xl bg-white/[0.03] border border-white/[0.08]">
+  <Image alt="Logo Reksadana" className="object-contain" height="{40}" priority="{false}" src="/logos/reksadana.png" width="{40}"/>
+</div>
 
-#### Pillar 1: Enterprise Ecosystem (ToscaFlow) [Top Left]
-- **Header:** ToscaFlow Icon/Badge + "ToscaFlow Ecosystem"
-- **Top-Right Status:** Single clean pill with animated emerald ping dot: `99.9% Production Uptime`
-- **Description:** "End-to-end enterprise digital infrastructure, SaaS architectures, and mission-critical software engineering. Leading organizational strategy and tech direction as Founder & CEO."
-- **Bottom Metrics & Tags:** 
-  - Micro tags: `Multi-tenant SaaS` • `Distributed Ops` • `High Concurrency`
-  - Action link: "Explore Ecosystem →" (links to https://toscaflow.id)
+2. Refactor Metrics Section into 4 Full Bento Cards (Fix Glitched Hover Box)
+Currently, the hover effect triggers an awkward standalone neon border around the text element (4 Ventures) inside an open row with vertical divider lines.
 
-#### Pillar 2: Strategic Finance & Capital Allocation [Top Right]
-- **Header:** TrendingUp / DollarSign icon in frosted tosca container + "Financial Strategy & Capital"
-- **Top-Right Status:** Subtle glass badge: `Thesis-Driven`
-- **Description:** "Macro-economic technology evaluation, discounted cash-flow (DCF) valuation models, and disciplined private capital allocation for long-term compounding."
-- **Bottom Metrics & Tags:**
-  - Micro tags: `Tech Equity Valuation` • `Risk Architecture` • `Capital Efficiency`
-  - Micro-metric: "Focus: Asymmetric Risk-to-Reward & Digital Infrastructure"
+Fix requirements:
 
-#### Pillar 3: Core Engineering & Systems [Bottom Left]
-- **Header:** Terminal / Code icon + "Full-Stack Software Architecture"
-- **Top-Right Status:** Subtle glass badge: `Zero-Latency Focus`
-- **Description:** "Engineering high-reliability web and mobile solutions using ASP.NET Core, PHP (Laravel/CI), Flutter, and modern TypeScript frameworks designed for maintainability and speed."
-- **Bottom Tech Pills:**
-  - `ASP.NET Core` • `Laravel / CI` • `Flutter` • `Next.js / TS`
+Remove the open flex/grid strip and the divider lines (border-l / border-r) entirely.
 
-#### Pillar 4: Quantitative Intelligence & Cloud Infrastructure [Bottom Right]
-- **Header:** Network / Cpu / Cloud icon + "Cloud Infrastructure & Quantitative Models"
-- **Top-Right Status:** Subtle glass badge: `AWS Certified Trainer`
-- **Description:** "Server provisioning, network edge routing, automated pipelines, and quantitative algorithmic scripts bridging technology automation with market data analytics."
-- **Bottom Tech Pills:**
-  - `AWS Architecture` • `Cloudflare Edge` • `Linux Kernel` • `Algorithmic Models`
+Remove any inner hover:border or glow styling placed directly around text headers.
 
----
+Transform the entire section into 4 individual Bento Cards with equal padding, equal height, and consistent card-level hover interactions:
 
-### 3. Visual & Technical Styling Rules
-1. **Card Container:**
-   ```tsx
-   className="group relative rounded-2xl border border-white/[0.08] bg-[#0c1012]/80 p-7 backdrop-blur-md transition-all duration-300 hover:border-teal-500/30 hover:shadow-[0_0_30px_-10px_rgba(20,184,166,0.15)] flex flex-col justify-between"
+TypeScript
+
+
+<section className="max-w-6xl mx-auto px-4 my-14">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    {metrics.map((item, idx) => (
+      <div 
+        key={idx}
+        className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#0c1012]/80 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-teal-500/40 hover:shadow-[0_0_30px_-5px_rgba(20,184,166,0.15)]"
+      >
+        {/* Subtle ambient tosca glow inside card on hover */}
+        <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-teal-500/[0.03] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        
+        <div className="relative z-10">
+          <div className="text-3xl lg:text-4xl font-bold tracking-tight text-white transition-colors duration-200 group-hover:text-teal-400">
+            {item.number}
+          </div>
+          <div className="mt-3 text-xs font-mono font-semibold tracking-widest text-teal-400 uppercase">
+            {item.label}
+          </div>
+        </div>
+
+        <div className="relative z-10 mt-4 text-sm text-slate-400 leading-relaxed">
+          {item.description}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+Data array values:
+
+number: "99.9%", label: "UPTIME RELIABILITY", description: "Mission-critical enterprise SLA"
+
+number: "6+ Years", label: "COMPUTING & SYSTEMS R&D", description: "Foundations built since 2020"
+
+number: "4 Brands", label: "VENTURE ECOSYSTEMS", description: "From DF Computer to ToscaFlow"
+
+number: "100%", label: "DISCIPLINED ALLOCATION", description: "Systems & capital convergence"
+
+Keep labels and descriptions wired to lib/content.ts for dual-language (EN / ID) support.
+
+Please provide the updated MetricsSection.tsx component and verify the image path logic.

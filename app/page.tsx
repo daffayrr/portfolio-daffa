@@ -5,6 +5,7 @@ import { BrandPath } from '@/components/sections/BrandPath';
 import { Pillars } from '@/components/sections/Pillars';
 import { Portfolio } from '@/components/sections/Portfolio';
 import { Metrics } from '@/components/sections/Metrics';
+import { AssetAllocation } from '@/components/sections/AssetAllocation';
 import { ClosingCTA } from '@/components/sections/ClosingCTA';
 import { Footer } from '@/components/sections/Footer';
 import { InitialLoader } from '@/components/InitialLoader';
@@ -20,6 +21,7 @@ export default function Home() {
         <Pillars />
         <Portfolio />
         <Metrics />
+        <AssetAllocation />
         <ClosingCTA />
         <Footer />
       </main>
