@@ -1,0 +1,72 @@
+Act as an elite Full-Stack Front-End Architect and UI/UX Designer specializing in Next.js (App Router), Tailwind CSS, TypeScript, and Framer Motion.
+
+I want to build an ultra-premium personal portfolio website for Farras Daffa Yassarramadhan (LinkedIn: https://www.linkedin.com/in/daffayrr), Founder & CEO of ToscaFlow (https://toscaflow.id). 
+
+The visual design language must mirror institutional luxury funds, modern venture firms, and private wealth syndicates (inspired by ronaldcapital.com and wealthclub.id).
+
+---
+
+### 1. Identity, Narrative & Dual-Focus
+- **Name:** Farras Daffa Yassarramadhan (Daffa)
+- **Role:** Founder & CEO at ToscaFlow | Technology Strategist & Private Financial Analyst
+- **Core Dual-Pillars:**
+  1. **Enterprise IT Architecture & Systems:** High-reliability cloud/server infrastructure, enterprise software engineering, CRM/SaaS systems, and digital transformations delivered via ToscaFlow.
+  2. **Quantitative & Personal Finance:** Strategic capital allocation, tech-driven financial modeling, investment thesis formulation, and financial intelligence.
+- **Affiliation / Venture:** ToscaFlow (Use the brand logo from `https://toscaflow.id` on relevant company/project cards and showcase badges).
+- **Socials / Contact:** LinkedIn (`https://www.linkedin.com/in/daffayrr`), ToscaFlow Portal (`https://toscaflow.id`), and direct contact inquiry channel.
+
+---
+
+### 2. Design System & Aesthetics
+- **Vibe:** Modern luxury, institutional finance, deep dark mode, razor-sharp typography, minimalist glassmorphism.
+- **Color Palette:**
+  - Backgrounds: Obsidian / Deep Black (`#080808`, `#0B0E0F`) with subtle `#121619` card surfaces.
+  - Accent / Primary Glow: Vibrant Electric Tosca / Mint Teal (`#00F2C3` / `#14B8A6`), utilized for ambient backdrops, active badges, hover rings, and metric highlights.
+  - Text: Crisp Pure White (`#FFFFFF`) for primary titles; Muted Slate (`#94A3B8`) for body; Faded Cyan/Tosca for uppercase micro-labels (`tracking-widest`).
+- **Visual Features:**
+  - Micro subtle grid background with a soft radial Tosca glow behind hero statements.
+  - Thin borders (`border-white/[0.08]` or `border-teal-500/20`) and frosted glass surfaces (`backdrop-blur-md bg-white/[0.02]`).
+
+---
+
+### 3. Internationalization / Bilingual Requirement (EN & ID)
+- Implement an elegant language toggle switch (EN / ID) directly in the floating header.
+- Provide a clean state management solution (e.g., React Context or lightweight Zustand / local state dictionary) containing all site copy cleanly translated between English and Bahasa Indonesia:
+  - English: Institutional, crisp, authoritative wording (e.g., "Investment Thesis & Infrastructure", "Chief Executive Officer").
+  - Bahasa Indonesia: Formal, professional, and elegant phrasing (e.g., "Tesis Teknologi & Keuangan", "Pendiri & CEO ToscaFlow").
+
+---
+
+### 4. Page Architecture & Sections
+1. **Glass Navigation Bar:**
+   - Monogram / Logo ("FDY." or ToscaFlow emblem).
+   - Navigation anchors: *About / Pillars*, *Ventures (ToscaFlow)*, *Track Record*, *Thesis / Finance*, *Contact*.
+   - EN | ID Language Switcher.
+   - Institutional CTA ("Inquire / Connect").
+2. **Hero Section:**
+   - Status Chip: Animated pulse dot with text (EN: "Leading ToscaFlow & Analyzing Modern Tech-Finance Markets" / ID: "Memimpin ToscaFlow & Riset Strategis Teknologi-Finansial").
+   - Bold Headline: Convergence of enterprise technology infrastructure and strategic capital.
+   - Dual CTA: "Explore ToscaFlow" (opens external) and "View Thesis & Projects".
+3. **Pillars of Competence (Bento Grid):**
+   - **Card 1: ToscaFlow Ecosystem (Featured):**
+     - Display company card with the official ToscaFlow logo fetched or referenced cleanly from `https://toscaflow.id`.
+     - Highlight executive leadership, uptime metrics (99.9% uptime, 24/7 operations, full-stack systems).
+   - **Card 2: Systems & Software Engineering:**
+     - Enterprise architectures, micro-services, secure authentication, SaaS platforms.
+   - **Card 3: Financial Analysis & Strategic Capital:**
+     - Analytical models, quantitative evaluation, and macroeconomic technology investments.
+4. **Key Metrics / Track Record Counter:**
+   - Minimalist grid showcasing server uptime, engineered systems, enterprise clients, and capital analytics.
+5. **Curated Works / Case Studies:**
+   - High-impact project cards with tech tags, impact notes, and external links.
+6. **Institutional Footer:**
+   - Clean copyright, LinkedIn link (`https://www.linkedin.com/in/daffayrr`), ToscaFlow link (`https://toscaflow.id`), and formal disclaimer.
+
+---
+
+### 5. Technical Deliverables Required
+1. Project configuration: Tailwind setup (`tailwind.config.ts` or CSS variables) with the specified Tosca and dark luxury palette tokens.
+2. Complete dictionary file (`lib/content.ts`) with typed strings for both EN and ID.
+3. Language Context Provider (`context/LanguageContext.tsx`).
+4. Full, production-ready, typed Next.js page (`app/page.tsx`) and components with Framer Motion animations.
+For logo and icon just use a text "FDY."
